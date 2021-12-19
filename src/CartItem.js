@@ -1,22 +1,31 @@
 import React from 'react';
 
 class CartItem extends React.Component {
-  constructor () {
-    super();
-    this.state = {
-      price: 999,
-      title: 'Mobile Phone',
-      qty: 1,
-      img: ''
-    }
-    
-  }
+  // testing () {
+  //   const promise = new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve('done');
+  //     }, 5000);
+  //   })
+
+  //   promise.then(() => {
+  //     // setState acts like a synchronus call
+  //     this.setState({ qty: this.state.qty + 10 });
+
+  //     this.setState({ qty: this.state.qty + 10 });
+
+  //     this.setState({ qty: this.state.qty + 10 });
+
+  //     console.log('state', this.state);
+  //   });
+  // }
   increaseQuantity = () => {
-   
+    // this.state.qty += 1;
+    // console.log('this', this.state);
     // setState form 1
     // this.setState({
     //   qty: this.state.qty + 1
-    // });
+    // }, () => {});
 
     // setState form 2 - if prevState required use this
     this.setState((prevState) => {
@@ -26,21 +35,25 @@ class CartItem extends React.Component {
     });
   }
 
-  decreaseQuantity = () =>{
-    this.setState((prevState) => {
-      console.log()
+  decreaseQuantity = () => {
+    const { qty } = this.state;
 
-      if(prevState.qty > 1){
-        return {
-          qty: prevState.qty - 1
-          }
-        }
+    if (qty === 0) {
+      return;
+    }
+    // setState form 2 - if prevState required use this
+    this.setState((prevState) => {
+      return {
+        qty: prevState.qty - 1
+      }
     });
   }
   render () {
-    const { price, title, qty } = this.state;
+    console.log('this.props', this.props);
+    const { price, title, qty } = this.props.product;
     return (
       <div className="cart-item">
+        {this.props.jsx}
         <div className="left-block">
           <img style={styles.image} />
         </div>
@@ -53,13 +66,13 @@ class CartItem extends React.Component {
             <img
               alt="increase"
               className="action-icons"
-              src="https://cdn-icons.flaticon.com/png/512/3114/premium/3114793.png?token=exp=1639906417~hmac=2cd9dfe8a1ac7adc716e4418313e6d85"
+              src="https://cdn-icons.flaticon.com/png/512/3303/premium/3303893.png?token=exp=1639924387~hmac=67bc73d0351757cff5c050eff762bc24"
               onClick={this.increaseQuantity}
             />
             <img
               alt="decrease"
               className="action-icons"
-              src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+              src="https://cdn-icons-png.flaticon.com/512/1828/1828906.png"
               onClick={this.decreaseQuantity}
             />
             <img
