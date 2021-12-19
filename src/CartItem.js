@@ -9,6 +9,33 @@ class CartItem extends React.Component {
       qty: 1,
       img: ''
     }
+    
+  }
+  increaseQuantity = () => {
+   
+    // setState form 1
+    // this.setState({
+    //   qty: this.state.qty + 1
+    // });
+
+    // setState form 2 - if prevState required use this
+    this.setState((prevState) => {
+      return {
+        qty: prevState.qty + 1
+      }
+    });
+  }
+
+  decreaseQuantity = () =>{
+    this.setState((prevState) => {
+      console.log()
+
+      if(prevState.qty > 1){
+        return {
+          qty: prevState.qty - 1
+          }
+        }
+    });
   }
   render () {
     const { price, title, qty } = this.state;
@@ -23,9 +50,23 @@ class CartItem extends React.Component {
           <div style={ { color: '#777' } }>Qty: {qty} </div>
           <div className="cart-item-actions">
             {/* Buttons */}
-            <img alt="increase" className="action-icons" src="https://cdn-icons.flaticon.com/png/512/3303/premium/3303893.png?token=exp=1639504546~hmac=657b34a17464364fbd783c45a4e89a6f" />
-            <img alt="decrease" className="action-icons" src="https://cdn-icons-png.flaticon.com/512/992/992683.png" />
-            <img alt="delete" className="action-icons" src="https://cdn-icons.flaticon.com/png/512/2874/premium/2874821.png?token=exp=1639504580~hmac=39f5dac6af0fdd41d7092cba916e967a" />
+            <img
+              alt="increase"
+              className="action-icons"
+              src="https://cdn-icons.flaticon.com/png/512/3114/premium/3114793.png?token=exp=1639906417~hmac=2cd9dfe8a1ac7adc716e4418313e6d85"
+              onClick={this.increaseQuantity}
+            />
+            <img
+              alt="decrease"
+              className="action-icons"
+              src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
+              onClick={this.decreaseQuantity}
+            />
+            <img
+              alt="delete"
+              className="action-icons"
+              src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
+            />
           </div>
         </div>
       </div>
