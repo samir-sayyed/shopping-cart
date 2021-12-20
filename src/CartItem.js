@@ -22,13 +22,13 @@ const CartItem = (props) => {
           <img
             alt="increase"
             className="action-icons"
-            src="https://cdn-icons.flaticon.com/png/512/169/premium/169782.png?token=exp=1639932597~hmac=4a3d93b90adfaa6db82d1f6af8e20425"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Ambox_emblem_plus.svg/1200px-Ambox_emblem_plus.svg.png"
             onClick={() => onIncreaseQuantity(product)}
           />
           <img
             alt="decrease"
             className="action-icons"
-            src="https://cdn-icons.flaticon.com/png/512/2569/premium/2569198.png?token=exp=1639932627~hmac=546be031ef5974d0641af315a0e57650"
+            src="https://cdn.pixabay.com/photo/2016/06/01/17/04/minus-1429374_1280.png"
             onClick={() => onDecreaseQuantity(product)}
           />
           <img
